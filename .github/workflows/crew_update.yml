@@ -1,0 +1,26 @@
+name: Columbus Crew Weekly Update
+
+on:
+  schedule:
+    - cron: '0 12 * * 1'  # Every Monday at 8 AM ET
+  workflow_dispatch:        # Also lets you trigger it manually anytime
+
+jobs:
+  send-crew-update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - run: pip install anthropic sendgrid
+
+      - name: Run Crew update
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SENDGRID_API_KEY:  ${{ secrets.SENDGRID_API_KEY }}
+          FROM_EMAIL:        ${{ secrets.FROM_EMAIL }}
+          TO_EMAIL:          ${{ secrets.TO_EMAIL }}
+        run: python crew_update.py
