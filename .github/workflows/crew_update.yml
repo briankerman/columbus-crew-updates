@@ -2,7 +2,7 @@ name: Columbus Crew Weekly Update
 
 on:
   schedule:
-    - cron: '0 12 * * 1'  # Every Monday at 8 AM ET
+- cron: '0 13 * * 3'  # Every Wednesday at 8 AM ET
   workflow_dispatch:        # Also lets you trigger it manually anytime
 
 jobs:
