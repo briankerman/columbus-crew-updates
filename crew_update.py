@@ -10,7 +10,7 @@ FROM_EMAIL        = os.environ["FROM_EMAIL"]
 TO_EMAIL          = os.environ["TO_EMAIL"]
 
 # Official Columbus Crew crest from their CDN
-CREW_LOGO_URL = "https://images.mlssoccer.com/image/upload/assets/logos/CLB-Logo.png"
+CREW_LOGO_URL = "https://upload.wikimedia.org/wikipedia/en/thumb/9/9e/Columbus_Crew_logo_2021.svg/336px-Columbus_Crew_logo_2021.svg.png"
 
 def generate_digest():
     client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
